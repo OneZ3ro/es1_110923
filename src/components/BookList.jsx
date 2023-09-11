@@ -11,7 +11,7 @@ class BookList extends Component {
     console.log(this.props.myArr);
 
     return (
-      <Container fluid>
+      <Container fluid style={{ marginLeft: "40px" }}>
         <Form
           style={{ textAlign: "left", marginBottom: "20px" }}
           value={this.state.bookName}

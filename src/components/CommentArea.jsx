@@ -1,7 +1,7 @@
 import { Component } from "react";
 import AddComment from "./AddComment";
 import CommentsList from "./CommentsList";
-import { Spinner } from "react-bootstrap";
+// import { Spinner } from "react-bootstrap";
 
 class CommentArea extends Component {
   state = {
@@ -38,16 +38,16 @@ class CommentArea extends Component {
     this.fetchComments();
   }
   render() {
-    console.log(this.state.comments);
+    // console.log(this.state.comments);
     return (
       <>
-        {this.state.isLoading && (
+        {/* {this.state.isLoading && (
           <Spinner
             style={{ marginTop: "20px" }}
             animation="border"
             variant="success"
           />
-        )}
+        )} */}
         {(this.state.comments === null || this.state.comments.length === 0) &&
           !this.state.isLoading && (
             <div style={{ marginTop: "20px" }}>
@@ -61,7 +61,7 @@ class CommentArea extends Component {
               <CommentsList commentList={this.state.comments} />
             </>
           )}
-        <AddComment bookId={this.props.idBook} />
+        <AddComment idBook={this.props.idBook} />
       </>
     );
   }

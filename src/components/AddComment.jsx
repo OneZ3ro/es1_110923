@@ -6,7 +6,7 @@ class AddComment extends Component {
     userComment: {
       comment: "",
       rate: "",
-      elementId: this.props.bookId,
+      elementId: this.props.idBook,
     },
   };
 
@@ -42,7 +42,11 @@ class AddComment extends Component {
   render() {
     return (
       <Form
-        style={{ textAlign: "left", marginTop: "20px" }}
+        style={{
+          textAlign: "left",
+          margin: "20px 40px 0 20px",
+          minWidth: "200px",
+        }}
         onSubmit={this.handleSubmit}
       >
         <h5>Dacci la tua opinione</h5>
