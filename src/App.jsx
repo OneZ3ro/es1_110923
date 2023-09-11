@@ -22,7 +22,7 @@ class App extends Component {
   };
 
   setIdBook = (value) => {
-    this.setState({ cardClicked: value });
+    this.setState({ idBookClicked: value });
   };
 
   render() {
@@ -30,7 +30,7 @@ class App extends Component {
     // for (let i = 0; i < 10; i++) {
     //   myArrFantasy.push(fantasy[i]);
     // }
-    console.log("sjbdkssfuli", this.state.idBookClicked);
+    console.log("idBookClicked", this.state.idBookClicked);
     return (
       <div className="App">
         <header>
@@ -47,7 +47,7 @@ class App extends Component {
               setIdBook={this.setIdBook}
               setSelectedCard={this.setSelectedCard}
             />
-            <CommentArea />
+            <CommentArea asin={this.state.idBookClicked} />
           </div>
         </main>
 

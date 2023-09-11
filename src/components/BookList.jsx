@@ -8,7 +8,7 @@ class BookList extends Component {
   };
 
   render() {
-    console.log(this.props.myArr);
+    // console.log(this.props.myArr);
 
     return (
       <Container fluid style={{ marginLeft: "40px" }}>
@@ -29,13 +29,17 @@ class BookList extends Component {
             />
           </Form.Group>
         </Form>
-        <Row xs={1} md={2} lg={3} xl={4} xxl={5} className="g-4">
+        <Row className="g-4">
           {this.props.myArr
             .filter((elem) =>
               elem.title.toLowerCase().includes(this.state.bookName)
             )
             .map((book) => (
-              <SingleBook myObj={book} key={book.asin} />
+              <SingleBook
+                myObj={book}
+                key={book.asin}
+                setIdBook={this.props.setIdBook}
+              />
             ))}
         </Row>
       </Container>

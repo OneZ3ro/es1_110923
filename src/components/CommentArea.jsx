@@ -10,9 +10,7 @@ class CommentArea extends Component {
   };
 
   fetchComments = async () => {
-    const URL =
-      "https://striveschool-api.herokuapp.com/api/comments/" +
-      this.props.idBook;
+    const URL = "https://striveschool-api.herokuapp.com/api/comments/";
     const method = {
       method: "GET",
       headers: {
@@ -25,7 +23,12 @@ class CommentArea extends Component {
 
       if (response.ok) {
         const parseComments = await response.json();
-        this.setState({ isLoading: false, comments: parseComments });
+        // console.log(parseComments);
+        const filterComments = parseComments.filter(
+          (comment) => comment.elementId === this.props.asin
+        );
+        // console.log("filtercomm", filterComments);
+        this.setState({ isLoading: false, comments: filterComments });
         // console.log(parseComments);
         // console.log(this.state.comments);
       }
@@ -34,13 +37,25 @@ class CommentArea extends Component {
     }
   };
 
-  componentDidMount() {
-    this.fetchComments();
-  }
+  // componentDidMount() {
+  //   this.fetchComments();
+  // }
+
+  componentDidUpdate = (prevProps) => {
+    console.log(prevProps);
+    console.log(this.props);
+
+    if (prevProps.asin !== this.props.asin) {
+      this.fetchComments();
+    } else {
+      console.log("niente di nuovo");
+    }
+  };
+
   render() {
     // console.log(this.state.comments);
     return (
-      <>
+      <div className="d-flex flex-column align-items-center">
         {/* {this.state.isLoading && (
           <Spinner
             style={{ marginTop: "20px" }}
@@ -48,6 +63,7 @@ class CommentArea extends Component {
             variant="success"
           />
         )} */}
+        {/* {console.log(this.state.comments)} */}
         {(this.state.comments === null || this.state.comments.length === 0) &&
           !this.state.isLoading && (
             <div style={{ marginTop: "20px" }}>
@@ -61,8 +77,11 @@ class CommentArea extends Component {
               <CommentsList commentList={this.state.comments} />
             </>
           )}
-        <AddComment idBook={this.props.idBook} />
-      </>
+        <AddComment asin={this.props.asin} />
+        {/* <div style={{ margin: "20px 40px 0 20px", minWidth: "200px" }}>
+          Al momento non c'è nulla e manca la funzione
+        </div> */}
+      </div>
     );
   }
 }

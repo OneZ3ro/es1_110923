@@ -6,7 +6,7 @@ class AddComment extends Component {
     userComment: {
       comment: "",
       rate: "",
-      elementId: this.props.idBook,
+      elementId: this.props.asin,
     },
   };
 
@@ -49,6 +49,7 @@ class AddComment extends Component {
         }}
         onSubmit={this.handleSubmit}
       >
+        {/* {console.log("add", this.props.asin)} */}
         <h5>Dacci la tua opinione</h5>
         <Form.Group>
           <Form.Label>Aggiungi commento</Form.Label>

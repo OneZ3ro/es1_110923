@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { Button, Card, Col } from "react-bootstrap";
-import CommentArea from "./CommentArea";
+// import CommentArea from "./CommentArea";
 
 class SingleBook extends Component {
   state = {
@@ -11,7 +11,7 @@ class SingleBook extends Component {
 
   render() {
     return (
-      <Col>
+      <Col xs={12} sm={6} md={4}>
         <Card
           style={
             this.state.selectedCard
@@ -24,6 +24,8 @@ class SingleBook extends Component {
             src={this.props.myObj.img}
             onClick={() => {
               this.setState({ selectedCard: !this.state.selectedCard });
+              // console.log(this.props.myObj.asin);
+              this.props.setIdBook(this.props.myObj.asin);
             }}
           />
           <Card.Body>
@@ -32,7 +34,7 @@ class SingleBook extends Component {
             </Card.Title>
             <Card.Text>Questo libro costa: {this.props.myObj.price}</Card.Text>
             <div className="d-flex justify-content-around">
-              <Button
+              {/* <Button
                 variant="success"
                 onClick={() => {
                   this.setState({
@@ -42,16 +44,16 @@ class SingleBook extends Component {
                 }}
               >
                 Vedi Commenti
-              </Button>
+              </Button> */}
               <Button variant="primary">Compra</Button>
             </div>
-            <div>
+            {/* <div>
               {this.state.selectedComments ? (
                 <CommentArea idBook={this.state.idSelectedBook} />
               ) : (
                 ""
               )}
-            </div>
+            </div> */}
           </Card.Body>
         </Card>
       </Col>
