@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { ListGroup } from "react-bootstrap";
+import { Button, ListGroup } from "react-bootstrap";
 
 class CommentsList extends Component {
   render() {
@@ -7,13 +7,18 @@ class CommentsList extends Component {
     // console.log("myarr", myArr);
     return (
       <ListGroup
-        as="ol"
-        numbered
-        style={{ marginTop: "20px", width: "fit-content" }}
+        as="ul"
+        style={{
+          marginTop: "20px",
+          width: "100%",
+        }}
       >
         {this.props.commentList.map((elem) => (
           <ListGroup.Item as="li" key={`commID-${elem._id}`}>
             {elem.comment}
+            <Button variant="danger" style={{ marginLeft: "15px" }}>
+              Danger
+            </Button>
           </ListGroup.Item>
         ))}
       </ListGroup>

@@ -46,6 +46,7 @@ class App extends Component {
               myArr={fantasy}
               setIdBook={this.setIdBook}
               setSelectedCard={this.setSelectedCard}
+              asin={this.state.idBookClicked}
             />
             <CommentArea asin={this.state.idBookClicked} />
           </div>

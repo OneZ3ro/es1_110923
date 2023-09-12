@@ -1,6 +1,7 @@
 import { Component } from "react";
 import AddComment from "./AddComment";
 import CommentsList from "./CommentsList";
+import { ListGroup } from "react-bootstrap";
 // import { Spinner } from "react-bootstrap";
 
 class CommentArea extends Component {
@@ -42,33 +43,33 @@ class CommentArea extends Component {
   // }
 
   componentDidUpdate = (prevProps) => {
-    console.log(prevProps);
-    console.log(this.props);
+    // console.log(prevProps);
+    // console.log(this.props);
 
     if (prevProps.asin !== this.props.asin) {
       this.fetchComments();
-    } else {
-      console.log("niente di nuovo");
     }
   };
 
   render() {
     // console.log(this.state.comments);
     return (
-      <div className="d-flex flex-column align-items-center">
-        {/* {this.state.isLoading && (
-          <Spinner
-            style={{ marginTop: "20px" }}
-            animation="border"
-            variant="success"
-          />
-        )} */}
+      <div
+        className="d-flex flex-column align-items-center"
+        style={{ margin: "0 40px 0 20px", width: "400px" }}
+      >
         {/* {console.log(this.state.comments)} */}
         {(this.state.comments === null || this.state.comments.length === 0) &&
           !this.state.isLoading && (
-            <div style={{ marginTop: "20px" }}>
-              Non ci sono ancora commenti su questo libro
-            </div>
+            // <div style={{ marginTop: "20px" }}>
+            //   Non ci sono ancora commenti su questo libro
+            // </div>
+
+            <ListGroup>
+              <ListGroup.Item as="li">
+                Non ci sono ancora commenti su questo libro
+              </ListGroup.Item>
+            </ListGroup>
           )}
         {this.state.comments !== null &&
           this.state.comments.length !== 0 &&

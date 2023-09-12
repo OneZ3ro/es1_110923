@@ -3,18 +3,18 @@ import { Button, Card, Col } from "react-bootstrap";
 // import CommentArea from "./CommentArea";
 
 class SingleBook extends Component {
-  state = {
-    selectedCard: false,
-    selectedComments: false,
-    idSelectedBook: "",
-  };
+  // state = {
+  //   selectedCard: false,
+  //   selectedComments: false,
+  //   idSelectedBook: "",
+  // };
 
   render() {
     return (
-      <Col xs={12} sm={6} md={4}>
+      <Col xs={12} md={6} lg={4}>
         <Card
           style={
-            this.state.selectedCard
+            this.props.asin === this.props.myObj.asin
               ? { border: "3px solid red" }
               : { border: "none" }
           }
@@ -23,7 +23,7 @@ class SingleBook extends Component {
             variant="top"
             src={this.props.myObj.img}
             onClick={() => {
-              this.setState({ selectedCard: !this.state.selectedCard });
+              // this.setState({ selectedCard: !this.state.selectedCard });
               // console.log(this.props.myObj.asin);
               this.props.setIdBook(this.props.myObj.asin);
             }}

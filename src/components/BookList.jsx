@@ -39,6 +39,7 @@ class BookList extends Component {
                 myObj={book}
                 key={book.asin}
                 setIdBook={this.props.setIdBook}
+                asin={this.props.asin}
               />
             ))}
         </Row>

@@ -19,9 +19,7 @@ class AddComment extends Component {
   handleSubmit = async (event) => {
     event.preventDefault();
     console.log(this.state.userComment);
-    const URL =
-      "https://striveschool-api.herokuapp.com/api/comments/" +
-      this.state.userComment.elementId;
+    const URL = "https://striveschool-api.herokuapp.com/api/comments/";
     const method = {
       method: "POST",
       body: JSON.stringify(this.state.userComment),
@@ -44,8 +42,8 @@ class AddComment extends Component {
       <Form
         style={{
           textAlign: "left",
-          margin: "20px 40px 0 20px",
-          minWidth: "200px",
+          marginTop: "20px",
+          width: "100%",
         }}
         onSubmit={this.handleSubmit}
       >
